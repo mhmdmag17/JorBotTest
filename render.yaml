@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: jor-play-live-bot
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BOT_TOKEN
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: PORT
+        value: 3000
+      - key: WEBAPP_URL
+        sync: false
+      - key: ALARM_CHANNEL_ID
+        sync: false
+      - key: JOR_COMMUNITY
+        sync: false
+      - key: BOT_ID
+        sync: false
+    autoDeploy: true
+    healthCheckPath: / 
