@@ -31,16 +31,6 @@ export const run = async (): Promise<void> => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  // Health check endpoint for Render and monitoring
-  app.get('/', (req: Request, res: Response) => {
-    res.status(200).json({
-      status: 'ok',
-      message: 'JOR Play Live Bot is running',
-      version: '1.0.0',
-      timestamp: new Date().toISOString()
-    });
-  });
-
   app.use('/auth', routeAuth)
   app.use('/user', routeUser)
   app.use('/level', routeLvl)
